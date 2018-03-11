@@ -1,0 +1,72 @@
+<div class="conatiner">
+    <h2>Sign up</h2>
+    <form name="form" ng-submit="register()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" ng-model="user.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" ng-model="user.password" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.reenterPassword.$dirty && form.reenterPassword.$error.required }">
+            <label for="reenterPassword">Re-enter Password</label>
+            <input type="password" name="reenterPassword" id="reenterPassword" class="form-control" ng-model="user.reenterPassword" required
+            />
+            <span ng-show="form.reenterPassword.$dirty && form.reenterPassword.$error.required" class="help-block">Re-enter Password is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.mobileNum.$dirty && form.mobileNum.$error.required }">
+            <label for="mobileNum">Mobile No</label>
+            <input type="text" name="mobileNum" id="mobileNum" class="form-control" ng-model="user.mobileNum" required />
+            <span ng-show="form.mobileNum.$dirty && form.mobileNum.$error.required" class="help-block">Mobile No is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.emailId.$dirty && form.emailId.$error.required }">
+            <label for="emailId">Email Id</label>
+            <input type="text" name="emailId" id="emailId" class="form-control" ng-model="user.emailId" required />
+            <span ng-show="form.emailId.$dirty && form.emailId.$error.required" class="help-block">Email Id is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.vehicleNum.$dirty && form.vehicleNum.$error.required }">
+            <label for="vehicleNum">Vehicle No</label>
+            <input type="text" name="vehicleNum" id="vehicleNum" class="form-control" ng-model="user.vehicleNum" required />
+            <span ng-show="form.vehicleNum.$dirty && form.vehicleNum.$error.required" class="help-block">Vehicle No is required</span>
+        </div>
+        <div class="check-box">
+            <input type="checkbox" name="termsAndConditions" id="termsAndConditions" ng-model="user.termsValidation"
+                required />
+            <span>
+                By accepting our
+                <a href="#" ng-click="open()">terms & conditions</a>
+            </span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-primary">Register</button>
+            <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+            <a href="#!/login" class="btn btn-link">Cancel</a>
+        </div>
+        <br>
+        <div class="modal-demo">
+            <script type="text/ng-template" id="termsAndConditionModalContent.html">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <ul>
+                        <li ng-repeat="item in items">
+                            <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                        </li>
+                    </ul>
+                    Selected: <b>{{ selected.item }}</b>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+            <!-- <button type="button" class="btn btn-default" ng-click="open()">Open me!</button> -->
+
+        </div>
+    </form>
+</div>

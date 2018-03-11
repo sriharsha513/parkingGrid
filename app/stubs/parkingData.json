@@ -1,0 +1,27 @@
+[
+        {
+            "position": "s1",
+            "booked": false,
+            "time": "",
+            "date": ""
+        },
+        {   
+            "position": "s2",
+            "booked": false,
+            "time": "",
+            "date": ""
+        },
+        {   
+            "position": "s3",
+            "booked": false,
+            "time": "",
+            "date": ""
+        },
+        {
+            "position": "s4",
+            "booked": false,
+            "time": "",
+            "date": ""
+        }
+        ]
+        
