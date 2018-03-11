@@ -1,0 +1,49 @@
+<div>
+    <h1>Overview Page</h1>
+</div>
+<br>
+<b>Wallet Balance: {{balance}}</b>
+<div class="col-md-6 col-md-offset-3">
+        <br>
+        <p>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></p>
+    
+          <datetimepicker 
+          hour-step="hourStep" 
+          minute-step="minuteStep"
+          ng-model="date" 
+          show-meridian="showMeridian" 
+          date-format="{{format}}" 
+          date-options="dateOptions"
+          date-disabled="disabled(date, mode)" 
+          datepicker-append-to-body="false"
+          readonly-date="false"
+          disabled-date="false"
+          hidden-time="false"
+          hidden-date="false" 
+          name="datetimepicker"
+          show-spinners="true"
+          readonly-time="false"
+          date-opened="dateOpened"
+          show-button-bar="false"
+          min-date="minDate"
+          max-date="maxDate"
+          >
+          <!-- Use date-ng-click="open($event, opened)" to override date ng-click -->
+          </datetimepicker>
+          
+    <div class="row">
+        <div  ng-repeat="data in bookingData" class="col-sm-3 col-xs-3">
+            <div>
+                <button 
+                ng-class="{'button button3':data.booked, 'button':!data.booked, 'selected': $index == selectedItemIndex}" 
+                ng-disabled="data.booked"
+                ng-click = "bookSlot(data,$index)">
+                </button>
+            </div>
+        &nbsp; &nbsp;
+        </div>
+    <form name="myForm" ng-submit="reserveSlot()">
+            <button ng-disabled="isDisabled" class="btn btn-primary">Reserve</button>
+            <button>Cancel</button>
+    </form>
+</div>

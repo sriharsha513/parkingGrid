@@ -1,0 +1,42 @@
+<h1>Book the slot</h1>
+
+<div class="conatiner">
+        <form name="ccForm" ng-submit="submitPayment()">
+                <div class="form-group">
+                        <div class="row">
+                                <div class="col-xs-3">
+                                        <label for="card-holder-name">Enter amount</label>
+                                        <input type="text" class="form-control" id="amount" cc-eager-type name="ccAmount" ng-model="cardInfo.amount">
+                                </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <label for="card-holder-name">Name on card</label>
+                        <input type="text" class="form-control" id="cardName" cc-eager-type name="ccName" ng-model="cardInfo.name">
+                </div>
+                <!-- cc-format -->
+                <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" cc-eager-type name="ccNumber" ng-model="cardInfo.number">
+                </div>
+                <div class="form-group">
+                        <label for="cvc">CVC</label>
+                        <input type="text" class="form-control" id="cvc" cc-cvc cc-type="ccForm.ccNumber.$ccType" name="ccCvc" ng-model="cardInfo.cvc">
+                </div>
+                <div class="form-group">
+                        <label for="card-number">Expiration</label>
+                        <div class="row" cc-exp>
+                                <div class="col-xs-3">
+                                        <input placeholder="MM" type="text" class="form-control" cc-exp-month name="ccExpMonth" ng-model="cardInfo.expiration.month">
+                                </div>
+                                <div class="col-xs-3">
+                                        <input placeholder="YY" type="text" class="form-control" cc-exp-year name="ccExpYear" ng-model="cardInfo.expiration.year">
+                                </div>
+                        </div>
+                </div>
+                <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn">Cancel</button>
+                </div>
+        </form>
+</div>
